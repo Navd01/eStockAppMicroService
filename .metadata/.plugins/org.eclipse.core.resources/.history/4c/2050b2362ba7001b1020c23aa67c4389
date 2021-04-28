@@ -1,0 +1,23 @@
+package com.naveed.intercomm;
+
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.naveed.beans.Company;
+
+@FeignClient("company-service")
+
+public interface CompanyClient {
+	@RequestMapping(method = RequestMethod.GET, value = "/customer/{customerId}")
+    Company getCompany(@PathVariable("companyCode") String companyCode);
+    
+
+}
+
+
+
+
+

@@ -1,0 +1,12 @@
+package com.naveed.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+//This controller is for micorservice communication. The endpoints are not exposed to end user
+
+@RestController
+public class InternalContoller {
+	
+	
+
+}

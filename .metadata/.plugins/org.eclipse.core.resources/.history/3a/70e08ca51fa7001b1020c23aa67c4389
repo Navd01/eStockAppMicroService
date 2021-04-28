@@ -1,0 +1,5 @@
+package com.naveed.intercomm;
+
+public interface CompanyClient {
+
+}

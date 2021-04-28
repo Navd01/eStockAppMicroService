@@ -1,0 +1,2 @@
+spring.application.name=company-service
+server.port=8081

@@ -1,0 +1,19 @@
+spring.application.name=microservice-hanlder
+server.port=8100
+
+zuul.prefix=/api/v1.0/market
+
+zuul.routes.company-service.path=/company/**
+zuul.routes.company-service.url=http://localhost:8081
+zuul.routes.company-service.strip-prefix= false
+
+zuul.routes.stock-service.path=/stock/**
+zuul.routes.stock-service.url=http://localhost:8082
+zuul.routes.stock-service.strip-prefix= false
+
+ribbon.eureka.enabled=true
+
+eureka.client.service-url.defaultZone = http://localhost:8761/eureka/
+eureka.client.register-with-eureka=false
+
+ribbon.ReadTimeout=60000

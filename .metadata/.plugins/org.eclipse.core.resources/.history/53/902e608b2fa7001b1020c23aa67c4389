@@ -1,0 +1,12 @@
+spring.application.name=company-service
+server.port=8081
+
+spring.jpa.show-sql=true
+
+spring.datasource.url = jdbc:mysql://localhost:3306/estockapp
+spring.datasource.username=root
+spring.datasource.password=Abracadabra@0
+#spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver

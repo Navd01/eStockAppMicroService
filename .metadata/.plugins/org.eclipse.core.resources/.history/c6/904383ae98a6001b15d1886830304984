@@ -1,0 +1,2 @@
+spring.application.name=microservice-hanlder
+server.port=8100

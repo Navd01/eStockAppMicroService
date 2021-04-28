@@ -1,0 +1,8 @@
+spring.application.name=microservice-hanlder
+server.port=8100
+
+zuul.prefix=/api/v1.0/market
+
+zuul.routes.company-service.path=/company/**
+zuul.routes.company-service.url=http://localhost:8081
+zuul.routes.company-service.strip-prefix= false
