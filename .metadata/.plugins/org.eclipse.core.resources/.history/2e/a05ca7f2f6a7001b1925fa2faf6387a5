@@ -1,0 +1,22 @@
+package com.naveed.exceptions;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import feign.FeignException;
+
+@RestControllerAdvice
+public class FeignHandler {
+	
+	@ExceptionHandler(FeignException.class)
+	public ResponseEntity<Object> handleFeignStatusException(FeignException e, HttpServletResponse response) {
+		e.getMessage().split("[");
+		System.out.println("This is regex -" , e );
+		return new ResponseEntity(e , HttpStatus.BAD_REQUEST);
+    }
+}
+

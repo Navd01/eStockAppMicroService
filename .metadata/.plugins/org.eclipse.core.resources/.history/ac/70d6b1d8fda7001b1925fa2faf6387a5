@@ -1,0 +1,26 @@
+package com.naveed.exceptions;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import feign.FeignException;
+
+@RestControllerAdvice
+public class FeignHandler {
+	
+	@ExceptionHandler(FeignException.class)
+	public ResponseEntity<Object> handleFeignStatusException(FeignException e, HttpServletResponse response) {
+		String[] e1 = e.getMessage().split(":");
+		for(String str : e1) {
+			System.out.println("Printing - " + str);
+		}
+		String error = e1[e1.length-1];
+		System.out.println("This is the error -" + error);
+		return new ResponseEntity(error , HttpStatus.BAD_REQUEST);
+    }
+}
+

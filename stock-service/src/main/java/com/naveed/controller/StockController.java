@@ -55,7 +55,6 @@ public class StockController {
         if(errorMap!=null) return errorMap;
 		
 		Company company = companyClient.getCompany(companyCode);
-		System.out.println("From Client -----" + company);
 		Stock receivedStock;
 		if(company == null) {
 			throw new StockException("Company with code " + companyCode + " doesnt exist" );
@@ -80,10 +79,9 @@ public class StockController {
 	public ResponseEntity<?> getStockInRange(@PathVariable String companyCode, @PathVariable String startDate , @PathVariable String endDate){
 		LocalDate startDate1 = LocalDate.parse(startDate);
 		LocalDate endDate1 = LocalDate.parse(endDate);
-		System.out.println();
 		
 		List<Stock> stockList = stockRepo.getByCompanyCodeAndCreateAtBetween(companyCode, startDate1, endDate1);
-		if(stockList == null) {
+		if(stockList == null || stockList.isEmpty()) {
 			throw new StockException("No Data found in  " + startDate1 + "-" + endDate1 +" range" );
 		}
 		//This method calculates the max, min, avg stockprices
@@ -110,7 +108,6 @@ public class StockController {
 		for(Stock s : stockList) {
 			stockPrices.add(s.getStockPrice());
 		}
-		System.out.println(stockPrices);
 		
 	if(!stockPrices.isEmpty()) {
 		Collections.sort(stockPrices);

@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class StockExceptionResponse {
 	
-	private String companyCode;
+	private String stockCode;
 
 }

@@ -44,6 +44,7 @@ public class CompanyController {
         if(errorMap!=null) return errorMap;
         Company company = new Company();
 		try {
+		registration.setCompanyCode(registration.getCompanyCode().toUpperCase());
 		 company = companyRepo.save(registration);
 		
 		}catch(Exception e) {
